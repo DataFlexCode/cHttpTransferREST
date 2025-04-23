@@ -169,6 +169,9 @@ Class cHttpTransferREST is a cHttpTransfer
         If (((sVerb = "POST") or (sVerb = "PUT") or (sVerb = "PATCH")) and hoBody) ;
             Get Stringify of hoBody to sBody
         
+        If hoBody ;
+            Send Destroy of hoBody
+        
         // Make the call
         Get HttpVerbAddrRequest sPath (AddressOf(sBody)) (SizeOfString(sBody)) False sVerb to iOK
         
